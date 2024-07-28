@@ -8,7 +8,7 @@ Este script instala la ultima versión disponible y estable del driver Nvidia
 - Debian 10 (buster)
 - Debian 11 (bullseye)
 - Debian 12 (Bookworm)
-- LMDE6 (Linux Mint Debian Edition 6)
+- LMDE6 (faye) (Linux Mint Debian Edition 6)
 
 Lo unico que se preguntará es si lo quiere con o sin CUDA, si no sabe que es esto, talvez lo quiera dejar instalado por si algún software lo necesita, es optativo.
 
