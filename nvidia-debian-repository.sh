@@ -23,7 +23,7 @@ install_with_cuda() {
 # Mostramos el menú y le pedimos al usuario que elija una opción
 while true; do
     show_menu
-    read -rp "Ingrese su opción [1-3]: " OPTION
+    read -p "Ingrese su opción [1-3]: " OPTION
     case $OPTION in
         1)
             install_without_cuda
