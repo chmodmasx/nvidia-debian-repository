@@ -5,5 +5,5 @@ Lo dicho, este script es para instalar los repositorios acorde a su versión de 
 Simplemente copie y pegue el siguiente comando en su terminal
 
 ```
-wget -qO- https://raw.githubusercontent.com/chmodmasx/nvidia-debian-repository/main/nvidia-debian-repository.sh | bash
+curl -s https://raw.githubusercontent.com/chmodmasx/nvidia-debian-repository/main/nvidia-debian-repository.sh >tmp.sh && bash tmp.sh
 ```
