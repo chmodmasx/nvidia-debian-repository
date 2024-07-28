@@ -26,6 +26,9 @@ show_menu
 # Leer la opción del usuario
 read -r -p "Ingrese su opción [1-3]: " OPTION
 
+# Mostrar la opción seleccionada para depuración
+echo "Opción seleccionada: '$OPTION'"
+
 # Ejecutar según la opción seleccionada
 case $OPTION in
     1)
@@ -44,6 +47,7 @@ case $OPTION in
         ;;
 esac
 
+# Continuar con la configuración adicional solo si la opción es válida
 # Actualizamos los repositorios
 sudo apt update
 
