@@ -11,13 +11,13 @@ show_menu() {
 # Función para instalar NVIDIA sin CUDA
 install_without_cuda() {
     echo "Instalando NVIDIA sin CUDA..."
-    sudo apt install -y nvidia-driver nvidia-smi nvidia-settings libcuda1-i386 nvidia-driver-libs-i386
+    sudo apt update && sudo apt install -y nvidia-driver nvidia-smi nvidia-settings libcuda1-i386 nvidia-driver-libs-i386
 }
 
 # Función para instalar NVIDIA con CUDA
 install_with_cuda() {
     echo "Instalando NVIDIA con CUDA..."
-    sudo apt install -y nvidia-driver cuda nvidia-smi nvidia-settings libcuda1-i386 nvidia-driver-libs-i386
+    sudo apt update && sudo apt -y nvidia-driver cuda nvidia-smi nvidia-settings libcuda1-i386 nvidia-driver-libs-i386
 }
 
 # Actualizamos los repositorios
