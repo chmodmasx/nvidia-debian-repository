@@ -1,6 +1,7 @@
 # Nvidia Repos e instalción del driver
 
-Lo dicho, este script es para instalar los repositorios acorde a su versión de Debian, de momento solo para Debian 10, 11 y 12 (Buster, Bullseye, Bookworm)
+Lo dicho, este script es para instalar los drivers y repositorios acorde a su versión de Debian, de momento solo para Debian 10, 11 y 12 (Buster, Bullseye, Bookworm)
+Este script instala la ultima versión disponible y estable del driver Nvidia
 
 Simplemente copie y pegue el siguiente comando en su terminal
 
