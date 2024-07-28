@@ -34,7 +34,7 @@ VERSION=$(lsb_release -cs)
 
 # Importamos la clave GPG de acuerdo a la versión de Debian
 case $VERSION in
-    bookworm)
+    bookworm|faye)
         REPO_URL="https://developer.download.nvidia.com/compute/cuda/repos/debian12/x86_64/"
         ;;
     bullseye)
