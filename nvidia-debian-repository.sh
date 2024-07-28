@@ -24,7 +24,11 @@ install_with_cuda() {
 show_menu
 
 # Leer la opción del usuario
-read -r -p "Ingrese su opción [1-3]: " OPTION
+if [ -t 0 ]; then
+    read -r -p "Ingrese su opción [1-3]: " OPTION
+else
+    OPTION=$(cat)
+fi
 
 # Mostrar la opción seleccionada para depuración
 echo "Opción seleccionada: '$OPTION'"
