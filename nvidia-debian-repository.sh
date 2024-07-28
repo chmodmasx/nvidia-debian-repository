@@ -32,7 +32,7 @@ sudo dpkg --add-architecture i386
 # Detectamos la versión de Debian
 VERSION=$(lsb_release -cs)
 
-# Importamos la clave GPG de acuerdo a la versión de Debian
+# Ajustamos la URL del repositorio según la versión de Debian
 case $VERSION in
     bookworm|faye)
         REPO_URL="https://developer.download.nvidia.com/compute/cuda/repos/debian12/x86_64/"
@@ -80,4 +80,3 @@ while true; do
             ;;
     esac
 done
-
