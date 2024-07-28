@@ -41,6 +41,7 @@ while true; do
             echo "Opción inválida. Intente nuevamente."
             ;;
     esac
+done
 
 # Actualizamos los repositorios
 sudo apt update
@@ -79,5 +80,3 @@ echo "deb [signed-by=/usr/share/keyrings/nvidia-drivers.gpg] $REPO_URL /" | sudo
 
 # Actualizamos los repositorios nuevamente
 sudo apt update
-
-done
