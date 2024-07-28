@@ -74,4 +74,4 @@ case $INSTALL_OPTION in
         ;;
 esac
 
-echo "Instalación completa."
+echo "Instalación completa, reinicie su equipo para que los cambios surtan efecto."
