@@ -1,11 +1,9 @@
 #!/bin/bash
 
-# Función para mostrar el menú de opciones
-show_menu() {
-    echo "Seleccione una opción:"
-    echo "1) Instalar NVIDIA sin CUDA"
-    echo "2) Instalar NVIDIA con CUDA"
-    echo "3) Salir"
+# Función para instalar NVIDIA con CUDA
+install_with_cuda() {
+    echo "Instalando NVIDIA con CUDA..."
+    sudo apt install -y nvidia-driver cuda nvidia-smi nvidia-settings
 }
 
 # Función para instalar NVIDIA sin CUDA
@@ -14,37 +12,14 @@ install_without_cuda() {
     sudo apt install -y nvidia-driver nvidia-smi nvidia-settings
 }
 
-# Función para instalar NVIDIA con CUDA
-install_with_cuda() {
-    echo "Instalando NVIDIA con CUDA..."
-    sudo apt install -y nvidia-driver cuda nvidia-smi nvidia-settings
-}
+# Pedimos al usuario que elija una opción
+echo "Seleccione una opción:"
+echo "1) Instalar NVIDIA con CUDA"
+echo "2) Instalar NVIDIA sin CUDA"
+read -p "Ingrese su opción [1-2]: " INSTALL_OPTION
 
 # Actualizamos los repositorios
 sudo apt update
-
-# Mostramos el menú y le pedimos al usuario que elija una opción
-while true; do
-    show_menu
-    read -p "Ingrese su opción [1-3]: " OPTION
-    case $OPTION in
-        1)
-            install_without_cuda
-            break
-            ;;
-        2)
-            install_with_cuda
-            break
-            ;;
-        3)
-            echo "Saliendo del script."
-            exit 0
-            ;;
-        *)
-            echo "Opción inválida. Intente nuevamente."
-            ;;
-    esac
-done
 
 # Instalamos los paquetes necesarios
 sudo apt install dirmngr ca-certificates software-properties-common apt-transport-https dkms curl -y
@@ -84,5 +59,19 @@ sudo apt update
 # Instalamos los paquetes adicionales
 echo "Instalando paquetes adicionales..."
 sudo apt install -y libcuda1-i386 nvidia-driver-libs-i386
+
+# Realizamos la instalación de NVIDIA según la opción del usuario
+case $INSTALL_OPTION in
+    1)
+        install_with_cuda
+        ;;
+    2)
+        install_without_cuda
+        ;;
+    *)
+        echo "Opción inválida. Saliendo del script."
+        exit 1
+        ;;
+esac
 
 echo "Instalación completa."
