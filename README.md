@@ -1,4 +1,4 @@
-# Nvidia Repos e instalción del driver
+# Nvidia Repo e instalción del driver
 
 Lo dicho, este script es para instalar los drivers y repositorios de Nvidia en Debian, solo para Debian 10, 11, 12 y LMDE6 (Buster, Bullseye, Bookworm, Linux Mint Debian Edition 6) este proceso se hace automaticamente.
 Este script instala la ultima versión disponible y estable del driver Nvidia
