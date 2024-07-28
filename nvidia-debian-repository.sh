@@ -11,17 +11,40 @@ show_menu() {
 # Función para instalar NVIDIA sin CUDA
 install_without_cuda() {
     echo "Instalando NVIDIA sin CUDA..."
-    sudo apt update && sudo apt install -y nvidia-driver nvidia-smi nvidia-settings
+    sudo apt install -y nvidia-driver nvidia-smi nvidia-settings
 }
 
 # Función para instalar NVIDIA con CUDA
 install_with_cuda() {
     echo "Instalando NVIDIA con CUDA..."
-    sudo apt update && sudo apt install -y nvidia-driver cuda nvidia-smi nvidia-settings
+    sudo apt install -y nvidia-driver cuda nvidia-smi nvidia-settings
 }
 
 # Actualizamos los repositorios
 sudo apt update
+
+# Mostramos el menú y le pedimos al usuario que elija una opción
+while true; do
+    show_menu
+    read -p "Ingrese su opción [1-3]: " OPTION
+    case $OPTION in
+        1)
+            install_without_cuda
+            break
+            ;;
+        2)
+            install_with_cuda
+            break
+            ;;
+        3)
+            echo "Saliendo del script."
+            exit 0
+            ;;
+        *)
+            echo "Opción inválida. Intente nuevamente."
+            ;;
+    esac
+done
 
 # Instalamos los paquetes necesarios
 sudo apt install dirmngr ca-certificates software-properties-common apt-transport-https dkms curl -y
@@ -57,29 +80,6 @@ echo "deb [signed-by=/usr/share/keyrings/nvidia-drivers.gpg] $REPO_URL /" | sudo
 
 # Actualizamos los repositorios nuevamente
 sudo apt update
-
-# Mostramos el menú y le pedimos al usuario que elija una opción
-while true; do
-    show_menu
-    read -p "Ingrese su opción [1-3]: " OPTION
-    case $OPTION in
-        1)
-            install_without_cuda
-            break
-            ;;
-        2)
-            install_with_cuda
-            break
-            ;;
-        3)
-            echo "Saliendo del script."
-            exit 0
-            ;;
-        *)
-            echo "Opción inválida. Intente nuevamente."
-            ;;
-    esac
-done
 
 # Instalamos los paquetes adicionales
 echo "Instalando paquetes adicionales..."
