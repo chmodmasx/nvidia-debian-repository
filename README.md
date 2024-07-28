@@ -7,6 +7,3 @@ Simplemente copie y pegue el siguiente comando en su terminal
 ```
 wget -qO- https://raw.githubusercontent.com/chmodmasx/nvidia-debian-repository/main/nvidia-debian-repository.sh | bash
 ```
-```
-wget -qO- https://raw.githubusercontent.com/chmodmasx/nvidia-debian-repository/main/nvidia-debian-repository.sh | bash
-```
