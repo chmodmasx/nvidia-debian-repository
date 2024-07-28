@@ -24,6 +24,7 @@ install_with_cuda() {
 while true; do
     show_menu
     read -p "Ingrese su opción [1-3]: " OPTION
+    echo "Opción seleccionada: $OPTION"  # Mensaje de depuración
     case $OPTION in
         1)
             install_without_cuda
