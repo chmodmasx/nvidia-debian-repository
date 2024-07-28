@@ -20,34 +20,6 @@ install_with_cuda() {
     sudo apt install -y nvidia-driver cuda nvidia-smi nvidia-settings libcuda1-i386 nvidia-driver-libs-i386
 }
 
-# Mostrar el menú
-show_menu
-
-# Leer la opción del usuario
-read -r -p "Ingrese su opción [1-3]: " OPTION
-
-# Mostrar la opción seleccionada para depuración
-echo "Opción seleccionada: '$OPTION'"
-
-# Ejecutar según la opción seleccionada
-case $OPTION in
-    1)
-        install_without_cuda
-        ;;
-    2)
-        install_with_cuda
-        ;;
-    3)
-        echo "Saliendo del script."
-        exit 0
-        ;;
-    *)
-        echo "Opción inválida. Salida del script."
-        exit 1
-        ;;
-esac
-
-# Continuar con la configuración adicional solo si la opción es válida
 # Actualizamos los repositorios
 sudo apt update
 
@@ -85,3 +57,26 @@ echo "deb [signed-by=/usr/share/keyrings/nvidia-drivers.gpg] $REPO_URL /" | sudo
 
 # Actualizamos los repositorios nuevamente
 sudo apt update
+
+# Mostramos el menú y le pedimos al usuario que elija una opción
+while true; do
+    show_menu
+    read -p "Ingrese su opción [1-3]: " OPTION
+    case $OPTION in
+        1)
+            install_without_cuda
+            break
+            ;;
+        2)
+            install_with_cuda
+            break
+            ;;
+        3)
+            echo "Saliendo del script."
+            exit 0
+            ;;
+        *)
+            echo "Opción inválida. Intente nuevamente."
+            ;;
+    esac
+done
